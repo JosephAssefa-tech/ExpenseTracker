@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExpenseTrackerDomainLayer.Common.AuditableEntities;
 
 namespace ExpenseTrackerDomainLayer.Entities
 {
-    public class Budget
+    public class Budget : AuditableEntity
     {
         [Key]
         public Guid BudgetId { get; set; }

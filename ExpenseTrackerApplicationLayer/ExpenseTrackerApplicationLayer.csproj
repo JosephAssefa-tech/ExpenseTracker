@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\ServiceInterface\" />
+    <Folder Include="Contracts\RepositoryInterface\" />
+    <Folder Include="Common\" />
+    <Folder Include="Entities\Budgets\" />
+    <Folder Include="Entities\Categories\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Entities\Transactions\" />
+    <Folder Include="Entities\Notifications\" />
+    <Folder Include="Entities\Users\" />
+  </ItemGroup>
+
 </Project>

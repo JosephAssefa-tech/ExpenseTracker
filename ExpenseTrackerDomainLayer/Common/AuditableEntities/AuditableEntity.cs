@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExpenseTrackerDomainLayer.AuditableEntities
+namespace ExpenseTrackerDomainLayer.Common.AuditableEntities
 {
-    public  class AuditableEntity
+    public class AuditableEntity
     {
         public bool? IsActive { get; set; }
         public bool? IsDeleted { get; set; }

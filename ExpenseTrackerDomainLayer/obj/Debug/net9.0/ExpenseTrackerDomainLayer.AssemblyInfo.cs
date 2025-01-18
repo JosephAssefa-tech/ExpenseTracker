@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExpenseTrackerDomainLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e342746e588d54809a70fdd8ccecc41f6e82dbee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55b0102eafd08ad31175f2fe745c9bb6ca6c7cd6")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExpenseTrackerDomainLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExpenseTrackerDomainLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
