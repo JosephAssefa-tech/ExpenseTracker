@@ -6,28 +6,72 @@ using ExpenseTrackerApplicationLayer.Models.Users.CommandHandlers;
 using ExpenseTrackerApplicationLayer.Models.Users.Services;
 using ExpenseTrackerApplicationPersistance;
 using ExpenseTrackerApplicationPersistance.Repositories.Users;
+using ExpenseTrackerIdentity;
+using ExpenseTrackerIdentity.Models;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Register DbContext
+// Add DbContext for Identity and Main Application (Expense Tracker)
+builder.Services.AddDbContext<ExpenseTrackerIdentityDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection")));
+
 builder.Services.AddDbContext<ExpenseTrackerDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+// Add Identity services (ApplicationUser and IdentityRole)
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ExpenseTrackerIdentityDbContext>()
+    .AddDefaultTokenProviders();
 
 // Register services
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 // Register AutoMapper and the UserProfile
-builder.Services.AddAutoMapper(typeof(UserMappingProfile)); 
+builder.Services.AddAutoMapper(typeof(UserMappingProfile));
 
 // Register MediatR
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.CommandHandlers.CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.QueriesHandlers.GetAllUsersQueryHandler).Assembly);
 
+// JWT Authentication Configuration
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    var key = builder.Configuration["JwtSettings:SecretKey"]; // Get the secret key from appsettings.json or another secure location
+    var issuer = builder.Configuration["JwtSettings:Issuer"]; // Get the JWT issuer
+    var audience = builder.Configuration["JwtSettings:Audience"]; // Get the JWT audience
+
+    options.SaveToken = true; // Optional: saves the JWT token to the AuthenticationProperties
+    options.RequireHttpsMetadata = false; // Set to true in production for HTTPS
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = issuer,
+        ValidAudience = audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)) // Use the secret key to sign the JWT
+    };
+});
+
+// Register Controllers
 builder.Services.AddControllers();
+
+// Register Swagger for API documentation
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -45,7 +89,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthorization();
+
+// Authentication and Authorization Middleware
+app.UseAuthentication();  // Add authentication middleware
+app.UseAuthorization();   // Add authorization middleware
+
 app.MapControllers();
 
 app.Run();

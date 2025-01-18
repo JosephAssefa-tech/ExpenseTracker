@@ -18,3 +18,5 @@ C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationPe
 C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationPersistance\obj\Debug\net9.0\ExpenseTrackerApplicationPersistance.pdb
 C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationPersistance\obj\Debug\net9.0\ExpenseTrackerApplicationPersistance.genruntimeconfig.cache
 C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationPersistance\obj\Debug\net9.0\ref\ExpenseTrackerApplicationPersistance.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationPersistance\bin\Debug\net9.0\ExpenseTrackerIdentity.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationPersistance\bin\Debug\net9.0\ExpenseTrackerIdentity.pdb

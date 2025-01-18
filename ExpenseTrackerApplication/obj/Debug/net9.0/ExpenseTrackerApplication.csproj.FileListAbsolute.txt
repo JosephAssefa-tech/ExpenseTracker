@@ -171,3 +171,5 @@ C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplication\o
 C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplication\obj\Debug\net9.0\ExpenseTrackerApplication.pdb
 C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplication\obj\Debug\net9.0\ExpenseTrackerApplication.genruntimeconfig.cache
 C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplication\obj\Debug\net9.0\ref\ExpenseTrackerApplication.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplication\bin\Debug\net9.0\ExpenseTrackerIdentity.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplication\bin\Debug\net9.0\ExpenseTrackerIdentity.pdb

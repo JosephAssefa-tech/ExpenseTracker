@@ -1989,6 +1989,20 @@
         "runtime": {
           "bin/placeholder/ExpenseTrackerDomainLayer.dll": {}
         }
+      },
+      "ExpenseTrackerIdentity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1"
+        },
+        "compile": {
+          "bin/placeholder/ExpenseTrackerIdentity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ExpenseTrackerIdentity.dll": {}
+        }
       }
     }
   },
@@ -5137,11 +5151,17 @@
       "type": "project",
       "path": "../ExpenseTrackerDomainLayer/ExpenseTrackerDomainLayer.csproj",
       "msbuildProject": "../ExpenseTrackerDomainLayer/ExpenseTrackerDomainLayer.csproj"
+    },
+    "ExpenseTrackerIdentity/1.0.0": {
+      "type": "project",
+      "path": "../ExpenseTrackerIdentity/ExpenseTrackerIdentity.csproj",
+      "msbuildProject": "../ExpenseTrackerIdentity/ExpenseTrackerIdentity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "ExpenseTrackerApplicationLayer >= 1.0.0",
+      "ExpenseTrackerIdentity >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 9.0.1",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 9.0.1",
       "Microsoft.AspNetCore.Mvc.Core >= 2.3.0",
@@ -5192,6 +5212,9 @@
           "projectReferences": {
             "C:\\Users\\user\\source\\repos\\ExpenseTrackerApplication\\ExpenseTrackerApplicationLayer\\ExpenseTrackerApplicationLayer.csproj": {
               "projectPath": "C:\\Users\\user\\source\\repos\\ExpenseTrackerApplication\\ExpenseTrackerApplicationLayer\\ExpenseTrackerApplicationLayer.csproj"
+            },
+            "C:\\Users\\user\\source\\repos\\ExpenseTrackerApplication\\ExpenseTrackerIdentity\\ExpenseTrackerIdentity.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\ExpenseTrackerApplication\\ExpenseTrackerIdentity\\ExpenseTrackerIdentity.csproj"
             }
           }
         }

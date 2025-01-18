@@ -9,6 +9,7 @@
       "ExpenseTrackerApplicationPersistance/1.0.0": {
         "dependencies": {
           "ExpenseTrackerApplicationLayer": "1.0.0",
+          "ExpenseTrackerIdentity": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.1",
           "Microsoft.AspNetCore.Mvc.Core": "2.3.0",
@@ -1112,6 +1113,18 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "ExpenseTrackerIdentity/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1"
+        },
+        "runtime": {
+          "ExpenseTrackerIdentity.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1827,6 +1840,11 @@
       "sha512": ""
     },
     "ExpenseTrackerDomainLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ExpenseTrackerIdentity/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

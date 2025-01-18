@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExpenseTrackerApplicationLayer\ExpenseTrackerApplicationLayer.csproj" />
+    <ProjectReference Include="..\ExpenseTrackerIdentity\ExpenseTrackerIdentity.csproj" />
   </ItemGroup>
 
 </Project>
