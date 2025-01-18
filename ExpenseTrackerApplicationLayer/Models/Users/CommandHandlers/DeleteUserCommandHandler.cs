@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExpenseTrackerApplicationPersistance.Contexts
+namespace ExpenseTrackerApplicationLayer.Models.Users.CommandHandlers
 {
-    public class ExpenseTrackerDbContext
+    public class DeleteUserCommandHandler
     {
     }
 }

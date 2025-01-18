@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "ExpenseTrackerApplication.Controllers.UserController",
+    "Method": "CreateUser",
+    "RelativePath": "api/User/createUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "ExpenseTrackerApplicationLayer.Models.Users.Commands.CreateUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ExpenseTrackerApplication.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

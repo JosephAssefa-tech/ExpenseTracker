@@ -1,9 +1,33 @@
+using System.Reflection;
+using ExpenseTrackerApplicationLayer.Contracts.RepositoryInterface.Users;
+using ExpenseTrackerApplicationLayer.Contracts.ServiceInterface.Users;
+using ExpenseTrackerApplicationLayer.Models.Users.AutoMapper;
+using ExpenseTrackerApplicationLayer.Models.Users.CommandHandlers;
+using ExpenseTrackerApplicationLayer.Models.Users.Services;
+using ExpenseTrackerApplicationPersistance;
+using ExpenseTrackerApplicationPersistance.Repositories.Users;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
-builder.Services.AddControllers();
+// Register DbContext
+builder.Services.AddDbContext<ExpenseTrackerDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
-// Register Swagger services
+// Register services
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+// Register AutoMapper and the UserProfile
+builder.Services.AddAutoMapper(typeof(UserMappingProfile)); 
+
+// Register MediatR
+builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.CommandHandlers.CreateUserCommandHandler).Assembly);
+
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -22,7 +46,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

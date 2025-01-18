@@ -1,0 +1,12 @@
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\bin\Debug\net9.0\ExpenseTrackerApplicationUnitTest.deps.json
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\bin\Debug\net9.0\ExpenseTrackerApplicationUnitTest.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\bin\Debug\net9.0\ExpenseTrackerApplicationUnitTest.pdb
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\obj\Debug\net9.0\ExpenseTrackerApplicationUnitTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\obj\Debug\net9.0\ExpenseTrackerApplicationUnitTest.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\obj\Debug\net9.0\ExpenseTrackerApplicationUnitTest.AssemblyInfo.cs
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\obj\Debug\net9.0\ExpenseTrackerApplicationUnitTest.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\obj\Debug\net9.0\ExpenseTrackerApplicationUnitTest.sourcelink.json
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\obj\Debug\net9.0\ExpenseTrackerApplicationUnitTest.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\obj\Debug\net9.0\refint\ExpenseTrackerApplicationUnitTest.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\obj\Debug\net9.0\ExpenseTrackerApplicationUnitTest.pdb
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationTest\obj\Debug\net9.0\ref\ExpenseTrackerApplicationUnitTest.dll

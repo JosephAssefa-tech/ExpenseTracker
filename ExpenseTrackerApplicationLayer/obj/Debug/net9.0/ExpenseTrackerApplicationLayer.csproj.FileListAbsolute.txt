@@ -1,0 +1,16 @@
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\bin\Debug\net9.0\ExpenseTrackerApplicationLayer.deps.json
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\bin\Debug\net9.0\ExpenseTrackerApplicationLayer.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\bin\Debug\net9.0\ExpenseTrackerApplicationLayer.pdb
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\bin\Debug\net9.0\ExpenseTrackerDomainLayer.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\bin\Debug\net9.0\ExpenseTrackerDomainLayer.pdb
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ExpenseTrackerApplicationLayer.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ExpenseTrackerApplicationLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ExpenseTrackerApplicationLayer.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ExpenseTrackerApplicationLayer.AssemblyInfo.cs
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ExpenseTrackerApplicationLayer.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ExpenseTrackerApplicationLayer.sourcelink.json
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ExpenseT.59653AEA.Up2Date
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ExpenseTrackerApplicationLayer.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\refint\ExpenseTrackerApplicationLayer.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ExpenseTrackerApplicationLayer.pdb
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerApplicationLayer\obj\Debug\net9.0\ref\ExpenseTrackerApplicationLayer.dll

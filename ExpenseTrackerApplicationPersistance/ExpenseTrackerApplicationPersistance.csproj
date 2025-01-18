@@ -7,10 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <Folder Include="Contexts\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Repositories\Budgets\" />
+    <Folder Include="Repositories\Categories\" />
+    <Folder Include="Repositories\Transactions\" />
+    <Folder Include="Repositories\Notifications\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
@@ -24,6 +31,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExpenseTrackerApplicationLayer\ExpenseTrackerApplicationLayer.csproj" />
   </ItemGroup>
 
 </Project>

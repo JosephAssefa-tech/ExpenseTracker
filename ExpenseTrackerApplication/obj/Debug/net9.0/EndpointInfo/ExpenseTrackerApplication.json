@@ -5,6 +5,37 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/User/createUser": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -47,6 +78,31 @@
   },
   "components": {
     "schemas": {
+      "CreateUserCommand": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Role": {
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "WeatherForecast": {
         "type": "object",
         "properties": {

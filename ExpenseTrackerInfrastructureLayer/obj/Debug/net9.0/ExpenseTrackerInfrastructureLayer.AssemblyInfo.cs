@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExpenseTrackerInfrastructureLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+469e5dc57b0b5a07e800914d41fe98abcc2abf10")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef1883fb3b2e58669dd58036fdce6b8fd6b2cb70")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExpenseTrackerInfrastructureLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExpenseTrackerInfrastructureLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

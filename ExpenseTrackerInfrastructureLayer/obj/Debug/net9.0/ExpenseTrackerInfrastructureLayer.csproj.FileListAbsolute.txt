@@ -1,0 +1,12 @@
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\bin\Debug\net9.0\ExpenseTrackerInfrastructureLayer.deps.json
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\bin\Debug\net9.0\ExpenseTrackerInfrastructureLayer.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\bin\Debug\net9.0\ExpenseTrackerInfrastructureLayer.pdb
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\obj\Debug\net9.0\ExpenseTrackerInfrastructureLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\obj\Debug\net9.0\ExpenseTrackerInfrastructureLayer.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\obj\Debug\net9.0\ExpenseTrackerInfrastructureLayer.AssemblyInfo.cs
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\obj\Debug\net9.0\ExpenseTrackerInfrastructureLayer.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\obj\Debug\net9.0\ExpenseTrackerInfrastructureLayer.sourcelink.json
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\obj\Debug\net9.0\ExpenseTrackerInfrastructureLayer.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\obj\Debug\net9.0\refint\ExpenseTrackerInfrastructureLayer.dll
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\obj\Debug\net9.0\ExpenseTrackerInfrastructureLayer.pdb
+C:\Users\user\source\repos\ExpenseTrackerApplication\ExpenseTrackerInfrastructureLayer\obj\Debug\net9.0\ref\ExpenseTrackerInfrastructureLayer.dll
