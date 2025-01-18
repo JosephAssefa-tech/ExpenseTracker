@@ -44,9 +44,10 @@ namespace ExpenseTrackerApplicationPersistance.Repositories.Users
             throw new NotImplementedException();
         }
 
-        public Task<List<User>> GetAllUsers()
+        public async Task<List<User>> GetAllUsers(int? userId)
         {
-            throw new NotImplementedException();
+            var users = await _context.Users.ToListAsync();
+            return users;
         }
 
         public Task<bool> UpdateUser(User model)

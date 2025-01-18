@@ -12,6 +12,6 @@ namespace ExpenseTrackerApplicationLayer.Contracts.RepositoryInterface.Users
         Task<bool> CreateUser(User model);
         Task<bool> UpdateUser(User model);
         Task<bool> DeleteUser(int userId);
-        Task<List<User>> GetAllUsers();
+        Task<List<User>> GetAllUsers(int? userId);
     }
 }

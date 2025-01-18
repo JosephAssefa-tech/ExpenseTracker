@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using ExpenseTrackerApplicationLayer.Models.Users.Commands;
+using ExpenseTrackerApplicationLayer.Models.Users.Dtos;
 using ExpenseTrackerDomainLayer.Entities;
 
 namespace ExpenseTrackerApplicationLayer.Models.Users.AutoMapper
@@ -15,6 +16,8 @@ namespace ExpenseTrackerApplicationLayer.Models.Users.AutoMapper
 
         CreateMap<CreateUserCommand,User>().ReverseMap();
         CreateMap<UpdateUserCommand,User>().ReverseMap();
+        CreateMap<UserDto, User>().ReverseMap();
+            
 
         }
     }

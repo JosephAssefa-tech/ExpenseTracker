@@ -7,7 +7,10 @@ using AutoMapper;
 using ExpenseTrackerApplicationLayer.Contracts.RepositoryInterface.Users;
 using ExpenseTrackerApplicationLayer.Contracts.ServiceInterface.Users;
 using ExpenseTrackerApplicationLayer.Models.Users.Commands;
+using ExpenseTrackerApplicationLayer.Models.Users.Dtos;
+using ExpenseTrackerApplicationLayer.Models.Users.Queries;
 using ExpenseTrackerDomainLayer.Entities;
+using MediatR;
 
 namespace ExpenseTrackerApplicationLayer.Models.Users.Services
 {
@@ -31,6 +34,14 @@ namespace ExpenseTrackerApplicationLayer.Models.Users.Services
         public Task<bool> DeleteUser(DeleteUserCommand command)
         {
             throw new NotImplementedException();
+        }
+
+        public async  Task<List<UserDto>> GetAllUsers(GetAllUsersQuery query)
+        {
+
+            var users = await _userRepository.GetAllUsers(query.UserId);
+            var usersDto = _mapper.Map<List<UserDto>> (users);
+            return usersDto;
         }
 
         public Task<bool> UpdateUser(UpdateUserCommand command)

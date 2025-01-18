@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using ExpenseTrackerApplicationLayer.Models.Users.Commands;
+using ExpenseTrackerApplicationLayer.Models.Users.Dtos;
+using ExpenseTrackerApplicationLayer.Models.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +24,13 @@ namespace ExpenseTrackerApplication.Controllers
         {
             bool sucess = await _mediator.Send(command);
             return Ok(new { sucess });
+        }
+
+        [HttpGet("getAllUsers")]
+        public async Task<ActionResult<UserDto>> GetALLUsers([FromQuery]  GetAllUsersQuery query)
+        {
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
     }
 }

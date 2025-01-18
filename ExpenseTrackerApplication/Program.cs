@@ -25,7 +25,7 @@ builder.Services.AddAutoMapper(typeof(UserMappingProfile));
 
 // Register MediatR
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.CommandHandlers.CreateUserCommandHandler).Assembly);
-
+builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.QueriesHandlers.GetAllUsersQueryHandler).Assembly);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
