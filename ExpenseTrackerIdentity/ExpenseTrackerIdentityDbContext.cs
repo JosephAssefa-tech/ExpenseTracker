@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ExpenseTrackerIdentity
 {
     //Add-Migration InitialIdentitySchema -Context ExpenseTrackerIdentityDbContext -OutputDir Migrations
-    //Update-Database -Context IdentityDbContext
+    //Update-Database -Context ExpenseTrackerIdentityDbContext
 
     public class ExpenseTrackerIdentityDbContext : IdentityDbContext<ApplicationUser>
     {

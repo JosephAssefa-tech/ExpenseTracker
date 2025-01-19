@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using ExpenseTrackerApplication.Dtos;
 using ExpenseTrackerIdentity.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,12 +16,18 @@ namespace ExpenseTrackerApplication.Controllers.Accounts
     public class AccountController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager; // For creating roles if they don't exist
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
+        public AccountController(
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            SignInManager<ApplicationUser> signInManager,
+            IConfiguration configuration)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
             _signInManager = signInManager;
             _configuration = configuration;
         }
@@ -32,6 +39,8 @@ namespace ExpenseTrackerApplication.Controllers.Accounts
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                // Assign a default role (e.g., User) when registering
+                await _userManager.AddToRoleAsync(user, "User");  // You can assign "Admin" or other roles here if needed
                 return Ok("User registered successfully");
             }
             return BadRequest(result.Errors);
@@ -49,7 +58,7 @@ namespace ExpenseTrackerApplication.Controllers.Accounts
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                var token = GenerateJwtToken(user);
+                var token = GenerateJwtToken(user);  // Call GenerateJwtToken to generate the JWT token with roles
                 return Ok(new { Token = token });
             }
             return Unauthorized();
@@ -57,13 +66,24 @@ namespace ExpenseTrackerApplication.Controllers.Accounts
 
         private string GenerateJwtToken(ApplicationUser user)
         {
-            var claims = new[]
-            {
+            // Fetch roles for the user
+            var roles = _userManager.GetRolesAsync(user).Result;
+
+            // Create claims
+            var claims = new List<Claim>
+        {
             new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(ClaimTypes.NameIdentifier, user.Id)
         };
 
+            // Add each role as a claim
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role)); // Add role as a claim
+            }
+
+            // Generate JWT token with roles included
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -80,3 +100,4 @@ namespace ExpenseTrackerApplication.Controllers.Accounts
     }
 
 }
+

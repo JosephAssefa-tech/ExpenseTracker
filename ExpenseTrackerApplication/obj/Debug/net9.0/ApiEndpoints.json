@@ -33,18 +33,28 @@
   },
   {
     "ContainingType": "ExpenseTrackerApplication.Controllers.Budgets.BudgetController",
-    "Method": "GetAllBudgers",
+    "Method": "CreateBudget",
     "RelativePath": "api/Budget/createBudget",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "query",
+        "Name": "command",
         "Type": "ExpenseTrackerApplicationLayer.Models.Budgets.Commands.CreateBudgetCommand",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExpenseTrackerApplication.Controllers.Budgets.BudgetController",
+    "Method": "EditBudget",
+    "RelativePath": "api/Budget/editBudget",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -56,9 +66,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "query",
-        "Type": "ExpenseTrackerApplicationLayer.Models.Budgets.Queries.GetAllBudgetsQuery",
-        "IsRequired": true
+        "Name": "IsDeleted",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

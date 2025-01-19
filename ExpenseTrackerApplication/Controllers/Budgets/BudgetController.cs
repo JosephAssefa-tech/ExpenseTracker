@@ -2,6 +2,7 @@
 using ExpenseTrackerApplicationLayer.Models.Budgets.Queries;
 using ExpenseTrackerApplicationLayer.Models.Budgets.ResponseDto;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,17 +17,25 @@ namespace ExpenseTrackerApplication.Controllers.Budgets
         {
             _mediatR = mediatR;
         }
+        [Authorize(Roles = "Admin")]  // Only accessible by Admin
         [HttpPost("createBudget")]
-        public async Task<IActionResult> GetAllBudgers(CreateBudgetCommand query)
+        public async Task<IActionResult> CreateBudget(CreateBudgetCommand command)
         {
-            bool data = await _mediatR.Send(query);
-
-            return Ok(data);
-
+            bool success = await _mediatR.Send(command);
+            return Ok(success);
         }
 
+        [Authorize(Roles = "Admin,Manager")]  // Accessible by Admin and Manager
+        [HttpPost("editBudget")]
+        public async Task<IActionResult> EditBudget( )
+        {
+         //   bool success = await _mediatR.Send();
+            return Ok();
+        }
+
+        [Authorize(Roles = "Admin")]
         [HttpGet("getAllBudgets")]
-        public async Task<ActionResult<List<ListBudgetResponseDto>>> GetAllBudgers(GetAllBudgetsQuery query)
+        public async Task<ActionResult<List<ListBudgetResponseDto>>> GetAllBudgers([FromQuery]  GetAllBudgetsQuery query)
         {
             var data = await _mediatR.Send(query);
 

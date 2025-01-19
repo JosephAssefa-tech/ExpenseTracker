@@ -20,6 +20,7 @@ using ExpenseTrackerApplicationPersistance.Repositories.Budgets;
 using ExpenseTrackerApplicationLayer.Contracts.ServiceInterface.Budgets;
 using ExpenseTrackerApplicationLayer.Models.Budgets.Services;
 using ExpenseTrackerApplicationLayer.Models.Budgets.AutoMapper;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,7 +53,6 @@ builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.Q
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Budgets.CommandHandlers.CreateBudgetCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Budgets.QueriesHandlers.GetALLBudgetQueryHandler).Assembly);
 
-
 // JWT Authentication Configuration
 builder.Services.AddAuthentication(options =>
 {
@@ -84,9 +84,49 @@ builder.Services.AddControllers();
 
 // Register Swagger for API documentation
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+
+    // Add JWT Bearer authentication to Swagger
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        Description = "Enter 'Bearer' followed by a space and the JWT token"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] { }
+        }
+    });
+});
 
 var app = builder.Build();
+
+
+// Seed roles and default admin user
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    // Call the methods to seed roles and default admin user
+    await SeedRolesAsync(services);
+    await SeedDefaultAdminAsync(services);
+}
 
 // Configure Swagger middleware for Development environment
 if (app.Environment.IsDevelopment())
@@ -108,3 +148,43 @@ app.UseAuthorization();   // Add authorization middleware
 app.MapControllers();
 
 app.Run();
+
+// Method to seed roles
+async Task SeedRolesAsync(IServiceProvider serviceProvider)
+{
+    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    // List of roles to seed
+    var roles = new[] { "Admin", "User", "Manager" }; // Add more roles as needed
+
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+        {
+            await roleManager.CreateAsync(new IdentityRole(role));
+        }
+    }
+}
+
+// Method to seed a default admin user
+async Task SeedDefaultAdminAsync(IServiceProvider serviceProvider)
+{
+    var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+    // Admin user details
+    var adminEmail = "admin@example.com";
+    var adminPassword = "Admin@123"; // Replace with a secure password in production
+
+    var adminUser = await userManager.FindByEmailAsync(adminEmail);
+    if (adminUser == null)
+    {
+        // Create the admin user
+        var user = new ApplicationUser { UserName = adminEmail, Email = adminEmail };
+        var result = await userManager.CreateAsync(user, adminPassword);
+        if (result.Succeeded)
+        {
+            // Assign the Admin role
+            await userManager.AddToRoleAsync(user, "Admin");
+        }
+    }
+}
