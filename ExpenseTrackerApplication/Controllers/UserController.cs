@@ -11,7 +11,7 @@ namespace ExpenseTrackerApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+  //  [Authorize]
 
 //    Use[Authorize(Roles = "Admin")] to restrict endpoints to specific roles.
 //Use[Authorize(Policy = "PolicyName")] for custom policies.
@@ -25,7 +25,7 @@ namespace ExpenseTrackerApplication.Controllers
         }
 
         [HttpPost("createUser")]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateUser(CreateUserCommand command)
         {
             bool sucess = await _mediator.Send(command);

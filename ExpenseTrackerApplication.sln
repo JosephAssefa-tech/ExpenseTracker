@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseTrackerApplicationUn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseTrackerApplicationIntegrationTest", "ExpenseTrackerApplicationIntegrationTest\ExpenseTrackerApplicationIntegrationTest.csproj", "{0A833330-AD1F-4A07-BF05-100A50A8BA69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseTrackerApplicationIdentity", "ExpenseTrackerApplicationIdentity\ExpenseTrackerApplicationIdentity.csproj", "{11DCE9DD-CEBB-4049-8D2B-CEE6099DAA7D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseTrackerApplicationPersistance", "ExpenseTrackerApplicationPersistance\ExpenseTrackerApplicationPersistance.csproj", "{1B7F6406-81E4-4912-B517-4EA142C97589}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B13F25C3-D6F4-4A67-9A61-DF600EA0496A}"
@@ -56,10 +54,6 @@ Global
 		{0A833330-AD1F-4A07-BF05-100A50A8BA69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A833330-AD1F-4A07-BF05-100A50A8BA69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A833330-AD1F-4A07-BF05-100A50A8BA69}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11DCE9DD-CEBB-4049-8D2B-CEE6099DAA7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11DCE9DD-CEBB-4049-8D2B-CEE6099DAA7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11DCE9DD-CEBB-4049-8D2B-CEE6099DAA7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11DCE9DD-CEBB-4049-8D2B-CEE6099DAA7D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1B7F6406-81E4-4912-B517-4EA142C97589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1B7F6406-81E4-4912-B517-4EA142C97589}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B7F6406-81E4-4912-B517-4EA142C97589}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -15,6 +15,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using ExpenseTrackerApplicationLayer.Contracts.RepositoryInterface.Budgets;
+using ExpenseTrackerApplicationPersistance.Repositories.Budgets;
+using ExpenseTrackerApplicationLayer.Contracts.ServiceInterface.Budgets;
+using ExpenseTrackerApplicationLayer.Models.Budgets.Services;
+using ExpenseTrackerApplicationLayer.Models.Budgets.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,13 +39,19 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 // Register services
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IBudgetRepository, BudgetRepository>();
+builder.Services.AddScoped<IBudgetService, BudgetService>();
 
 // Register AutoMapper and the UserProfile
 builder.Services.AddAutoMapper(typeof(UserMappingProfile));
+builder.Services.AddAutoMapper(typeof(BudgetMappingProfile));
 
 // Register MediatR
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.CommandHandlers.CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.QueriesHandlers.GetAllUsersQueryHandler).Assembly);
+builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Budgets.CommandHandlers.CreateBudgetCommandHandler).Assembly);
+builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Budgets.QueriesHandlers.GetALLBudgetQueryHandler).Assembly);
+
 
 // JWT Authentication Configuration
 builder.Services.AddAuthentication(options =>

@@ -32,6 +32,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ExpenseTrackerApplication.Controllers.Budgets.BudgetController",
+    "Method": "GetAllBudgers",
+    "RelativePath": "api/Budget/createBudget",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "ExpenseTrackerApplicationLayer.Models.Budgets.Commands.CreateBudgetCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExpenseTrackerApplication.Controllers.Budgets.BudgetController",
+    "Method": "GetAllBudgers",
+    "RelativePath": "api/Budget/getAllBudgets",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "ExpenseTrackerApplicationLayer.Models.Budgets.Queries.GetAllBudgetsQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ExpenseTrackerApplicationLayer.Models.Budgets.ResponseDto.ListBudgetResponseDto, ExpenseTrackerApplicationLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "ExpenseTrackerApplication.Controllers.UserController",
     "Method": "CreateUser",
     "RelativePath": "api/User/createUser",
