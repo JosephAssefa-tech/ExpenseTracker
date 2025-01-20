@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\RepositoryInterface\Categories\" />
     <Folder Include="Contracts\RepositoryInterface\Transactions\" />
     <Folder Include="Contracts\RepositoryInterface\Notifications\" />
     <Folder Include="Common\" />
     <Folder Include="Models\Budgets\Dtos\" />
     <Folder Include="Models\Budgets\Validators\" />
-    <Folder Include="Models\Categories\" />
+    <Folder Include="Models\Categories\Validators\" />
+    <Folder Include="Models\Categories\ResponseDto\" />
     <Folder Include="Models\Transactions\" />
     <Folder Include="Models\Notifications\" />
     <Folder Include="Models\Users\ResponseDto\" />

@@ -21,6 +21,11 @@ using ExpenseTrackerApplicationLayer.Contracts.ServiceInterface.Budgets;
 using ExpenseTrackerApplicationLayer.Models.Budgets.Services;
 using ExpenseTrackerApplicationLayer.Models.Budgets.AutoMapper;
 using Microsoft.OpenApi.Models;
+using ExpenseTrackerApplicationLayer.Contracts.RepositoryInterface.Categories;
+using ExpenseTrackerApplicationPersistance.Repositories.Categories;
+using ExpenseTrackerApplicationLayer.Contracts.ServiceInterface.Categories;
+using ExpenseTrackerApplicationLayer.Models.Categories.Services;
+using ExpenseTrackerApplicationLayer.Models.Categories.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,18 +45,30 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 // Register services
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+
 builder.Services.AddScoped<IBudgetRepository, BudgetRepository>();
 builder.Services.AddScoped<IBudgetService, BudgetService>();
+
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 // Register AutoMapper and the UserProfile
 builder.Services.AddAutoMapper(typeof(UserMappingProfile));
 builder.Services.AddAutoMapper(typeof(BudgetMappingProfile));
+builder.Services.AddAutoMapper(typeof(CategoryMappingProfile));
 
 // Register MediatR
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.CommandHandlers.CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Users.QueriesHandlers.GetAllUsersQueryHandler).Assembly);
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Budgets.CommandHandlers.CreateBudgetCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Budgets.QueriesHandlers.GetALLBudgetQueryHandler).Assembly);
+
+builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Categories.CommandHandlers.CreateCategoryCommandHandler).Assembly);
+builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Categories.QueriesHandlers.GetAllCategoryQueryHandler).Assembly);
+builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Categories.CommandHandlers.UpdateCategoryCommandHandler).Assembly);
+builder.Services.AddMediatR(typeof(ExpenseTrackerApplicationLayer.Models.Categories.CommandHandlers.DeleteCategoryCommandHandler).Assembly);
+
+
 
 // JWT Authentication Configuration
 builder.Services.AddAuthentication(options =>
