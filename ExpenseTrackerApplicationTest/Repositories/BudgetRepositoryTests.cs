@@ -16,36 +16,33 @@ namespace ExpenseTrackerApplicationUnitTest.Repositories
 {
     public class BudgetRepositoryTests
     {
-        private readonly Mock<ExpenseTrackerDbContext> _dbContextMock;
-        private readonly Mock<DbSet<Budget>> _budgetDbSetMock;
+        private readonly ExpenseTrackerDbContext _dbContext;
         private readonly BudgetRepository _repository;
 
         public BudgetRepositoryTests()
         {
-            _dbContextMock = new Mock<ExpenseTrackerDbContext>();
-            _budgetDbSetMock = new Mock<DbSet<Budget>>();
+            var options = new DbContextOptionsBuilder<ExpenseTrackerDbContext>()
+                .UseInMemoryDatabase("TestDatabase")
+                .Options;
 
-            _dbContextMock.Setup(m => m.Budgets).Returns(_budgetDbSetMock.Object);
-
-            _repository = new BudgetRepository(_dbContextMock.Object);
+            _dbContext = new ExpenseTrackerDbContext(options);
+            _repository = new BudgetRepository(_dbContext);
         }
+
         [Fact]
         public async Task CreateBudget_ShouldReturnFalse_WhenBudgetNameExists()
         {
             // Arrange
-            var existingBudget = new Budget { BudgetName = "Test Budget" };
-            var newBudget = new Budget { BudgetName = "Test Budget" };
+            _dbContext.Budgets.Add(new Budget { BudgetName = "Test Budget" });
+            await _dbContext.SaveChangesAsync();
 
-            _budgetDbSetMock.Setup(m => m.AnyAsync(It.IsAny<Expression<Func<Budget, bool>>>(), default))
-                .ReturnsAsync(true);
+            var newBudget = new Budget { BudgetName = "Test Budget" };
 
             // Act
             var result = await _repository.CreateBudget(newBudget);
 
             // Assert
             result.Should().BeFalse();
-            _budgetDbSetMock.Verify(m => m.Add(It.IsAny<Budget>()), Times.Never);
-            _dbContextMock.Verify(m => m.SaveChangesAsync(default), Times.Never);
         }
 
         [Fact]
@@ -54,16 +51,14 @@ namespace ExpenseTrackerApplicationUnitTest.Repositories
             // Arrange
             var newBudget = new Budget { BudgetName = "New Budget" };
 
-            _budgetDbSetMock.Setup(m => m.AnyAsync(It.IsAny<Expression<Func<Budget, bool>>>(), default))
-                .ReturnsAsync(false);
-
             // Act
             var result = await _repository.CreateBudget(newBudget);
 
             // Assert
             result.Should().BeTrue();
-            _budgetDbSetMock.Verify(m => m.Add(It.IsAny<Budget>()), Times.Once);
-            _dbContextMock.Verify(m => m.SaveChangesAsync(default), Times.Once);
+            var budget = await _dbContext.Budgets.FirstOrDefaultAsync(b => b.BudgetName == "New Budget");
+            budget.Should().NotBeNull();
         }
     }
+
 }

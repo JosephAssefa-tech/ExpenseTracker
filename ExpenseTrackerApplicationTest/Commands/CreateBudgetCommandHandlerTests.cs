@@ -18,10 +18,11 @@ namespace ExpenseTrackerApplicationUnitTest.Commands
         private readonly Mock<IBudgetService> _mockBudgetService;
         private readonly CreateBudgetCommandHandler _createBudgetCommandHandler;
 
-        public CreateBudgetCommandHandlerTests(Mock<IBudgetService> mockBudgetService, CreateBudgetCommandHandler createBudgetCommandHandler)
+        public CreateBudgetCommandHandlerTests()
         {
-            _mockBudgetService = mockBudgetService;
-            _createBudgetCommandHandler = createBudgetCommandHandler;
+            _mockBudgetService = new Mock<IBudgetService>();
+            _createBudgetCommandHandler = new CreateBudgetCommandHandler(_mockBudgetService.Object);
+
         }
         [Fact]
         public async Task Handle_ShouldReturnTrueWhenBudgetIsCreated()
